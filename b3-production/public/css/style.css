@@ -1,0 +1,37 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.issues-header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
+}
+.issues-list {
+    list-style: none;
+    padding: 0;
+}
+.issues-list li {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    font-size: 18px;
+}
+.issue-closed {
+    color: #999;
+}
+.issue-open {
+    color: #5cb85c;
+}
+.issue-closed:before {
+    content: "🔒";
+    padding-right: 10px;
+}
+.issue-open:before {
+    content: "🔓";
+    padding-right: 10px;
+}

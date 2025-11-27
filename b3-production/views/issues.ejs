@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Issues List</title>
+    <link rel="stylesheet" href="/css/style.css"> 
+</head>
+<body>
+  <header class="issues-header"> <h1>Issues</h1></header>
+  
+  <div id="status" class="connection-status">Connecting...</div>
+    <ul id="issuesList" class="issues-list">
+        <% issues.forEach(issue => { %>
+          <li id="issue_<%= issue.id %>" class="issue-<%= issue.state.toLowerCase() %>"> 
+            <span class="issue-title"><%= issue.title %></span> - 
+            <strong class="issue-state <%= 'issue-' + issue.state.toLowerCase() %>"><%= issue.state %></strong>
+          </li>
+        <% }); %>
+    </ul>
+
+    <script>
+      const webSocket = new WebSocket('wss://cscloud7-225.lnu.se/');
+      const statusDisplay = document.getElementById('status');
+
+      // Display the WebSocket connection status
+      function updateStatus(message, isError = false) {
+        statusDisplay.textContent = message;
+        statusDisplay.style.color = isError ? 'red' : 'green';
+      }
+
+      webSocket.onopen = () => {
+        console.log('WebSocket connection established');
+        updateStatus('Connected', false);
+      }
+
+      webSocket.onmessage = (event) => {
+        console.log('Received message from server:', event.data);
+        const message = JSON.parse(event.data); //parse the JSON message from the server
+
+        switch (message.type) {
+          case 'connection-notification':
+            console.log(message.content); // Handle the connection message
+            break;
+
+          case 'issue-update':
+            const issue = message.data; // extract the issue
+            updateIssuesList(issue);
+            console.log("Update received for issue:", issue);
+            break;
+        }
+      }
+
+      webSocket.onerror = (error) => {
+        console.error('WebSocket error:', error);
+        updateStatus('Error - see console for details', true);
+      };
+
+      webSocket.onclose = () => {
+        console.log('WebSocket connection closed');
+        updateStatus('Disconnected - attempting to reconnect...', true);
+        setTimeout(() => {
+          window.location.reload(); // Attempt to reconnect by reloading the page
+        }, 5000);
+      };
+
+      function updateIssuesList(issue) {
+        const issuesList = document.getElementById('issuesList');
+        let issueItem = document.getElementById(`issue_${issue.id}`);
+        if(issueItem) {
+          // Update existing issue
+          issueItem.innerHTML = `${issue.title} - <strong>${issue.state}</strong>`;
+        } else {
+          // Add new issue
+          issuesList.innerHTML += `<li id="issue_${issue.id}">${issue.title} - <strong>${issue.state}</strong></li>`;
+        }
+      }
+    </script>
+    
+</body>
+</html>

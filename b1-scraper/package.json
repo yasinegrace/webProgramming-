@@ -1,0 +1,48 @@
+{
+  "name": "b1-scraper",
+  "version": "1.0.0",
+  "description": "webScraper",
+  "type": "module",
+  "main": "app.mjs",
+  "scripts": {
+    "start": "node src/app.mjs",
+    "http-server": "npx http-server -p 9001",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "htmlhint": "npx htmlhint public src || exit 0",
+    "stylelint": "npx stylelint **/*.css || exit 0",
+    "stylelint:fix": "npx stylelint --fix **/*.css || exit 0",
+    "eslint": "npx eslint . || exit 0",
+    "eslint:fix": "npx eslint --fix . || exit 0",
+    "jsdoc": "npx jsdoc -c .jsdoc.json || exit 0",
+    "lint": "npm run htmlhint && npm run stylelint && npm run eslint",
+    "test": "npm run lint",
+    "clean": "rm -rf build/",
+    "clean-all": "npm run clean && rm -rf node_modules/ && rm -f package-lock.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.lnu.se:1dv528/student/gy222at/b1-scraper.git"
+  },
+  "author": "Grace Yasine",
+  "license": "MIT",
+  "devDependencies": {
+    "@lnu/eslint-config": "^1.1.10",
+    "eslint": "^8.56.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsdoc": "^46.10.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "stylelint-config-recommended": "^14.0.0"
+  },
+  "eslintConfig": {
+    "extends": "@lnu"
+  },
+  "dependencies": {
+    "fetch-cookie": "^0.11.0",
+    "jsdom": "^16.4.0",
+    "node-fetch": "^2.6.1"
+  }
+}

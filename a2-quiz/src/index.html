@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Game</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="img/favIcon.jpeg">
+</head>
+
+<body>
+
+  <header class="quiz-header">
+    <h1>Quiz Game</h1>
+    <div id="timer-display" class="timer-display">0:00</div>
+  </header>
+
+  <div id="app" class="quiz-container">
+    <section id="start-section" class="start-section">
+      <input type="text" id="InputNickName" placeholder="Enter your nickname" />
+      <button id="start-quiz" class="start-quiz">Start Quiz </button>
+      <p class="game-rules">
+        Answer each question correctly to progress. The game ends with the first incorrect answer.
+      </p>
+    </section>
+
+    <section id="question-container" class="question-container" style="display:none;">
+    </section>
+
+    <div id="high-score-container" class="high-score-container">
+      <button id="view-high-scores">View High Scores</button>
+    </div>
+
+    <section id="answer-container" class="answer-container" style="display:none;"></section>
+    <div id="score" class="score" style="display:none;"></div>
+    <button id="next-question" class="next-question" style="display:none;">Next Question</button>
+
+    <footer class="quiz-footer">
+      <p>Good luck!</p>
+    </footer>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+
+</body>
+
+</html>

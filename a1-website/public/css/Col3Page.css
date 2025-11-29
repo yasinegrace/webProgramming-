@@ -1,0 +1,112 @@
+/*styles both the two col page and the three - col page */
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 10px;
+}
+
+.left-aside,
+.right-aside {
+    width: 20%;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #ddd;
+
+}
+
+.main-column {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ddd;
+
+}
+
+.upcoming-events h3,
+.upcoming-events h4 {
+    color: #333366;
+    font-weight: bold;
+}
+
+.upcoming-events ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.upcoming-events a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.upcoming-events a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-aside,
+    .main-column,
+    .right-aside {
+        width: 100%;
+    }
+}
+
+body {
+    background-color: #f0e6f6;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+
+
+.main-column p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.main-column img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+
+}
+
+.main-column .interview a {
+    color: #d63384;
+    /* Color for interview link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.main-column .interview a:hover {
+    text-decoration: underline;
+}
+
+.about-Grace {
+    margin-bottom: 20px;
+}
+
+.interview {
+    margin-top: 20px;
+
+}
+
+.social-media .icons-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.social-media a img {
+    width: 24px;
+    height: auto;
+}

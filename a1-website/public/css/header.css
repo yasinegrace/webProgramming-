@@ -1,0 +1,28 @@
+.header-content {
+  background-color: #07395a;
+  padding: 20px;
+  color: white;
+}
+
+
+.header-content .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content .logo img {
+  width: 100px;
+  height: auto;
+}
+
+.header-content .title {
+  font-size: 1.5em;
+  font-weight: bold;
+
+}
+
+.header-content .subtitle {
+  font-size: 1em;
+  color: #ecf0f1;
+}

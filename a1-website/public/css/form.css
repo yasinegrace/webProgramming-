@@ -1,0 +1,39 @@
+fieldset {
+    display: block;
+    margin: 15px;
+    padding-bottom: 24px;
+    padding-top: 23px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+main {
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 10px;
+    font-size: 1.2em;
+}

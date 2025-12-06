@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>PWD - Personal Web Desktop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="img/favIcon.jpeg">
+</head>
+
+<body>
+  <h1 id="mainHeading">Welcome to My Personal Web Desktop</h1>
+  <nav id="desktop">
+    <img src="imgs/MemoryIcon.png" alt="Memory Game" id="memoryGameIcon" class="app-icon">
+    <img src="imgs/chat_icon.png" alt="Chat" id="chatIcon" class="app-icon">
+    <img src="imgs/custom_app_icon.png" alt="Custom App" id="customAppIcon" class="app-icon">
+  </nav>
+
+  <article id="memoryGameWindow" class="app-window" style="display:none;">
+    <header class="window-header">
+      <span>Memory Game</span>
+      <button class="close-button">X</button>
+    </header>
+
+    <div id="sizeSelectionModal" class="modal" style="display:block;">
+      <div class="modal-content">
+        <span>Select Gameboard Size:</span>
+        <button class="size-btn" data-rows="2" data-cols="2">2x2</button>
+        <button class="size-btn" data-rows="4" data-cols="4">4x4</button>
+        <button class="size-btn" data-rows="2" data-cols="4">2x4</button>
+      </div>
+    </div>
+    <div id="memoryGameParentContainer"></div>
+  </article>
+
+
+  <article id="chatWindow" class="app-window" style="display:none;">
+    <header class="window-header">
+      <span>Chat</span>
+      <button class="close-button">X</button>
+
+    </header>
+
+    <div id="chatSettings" class="chat-settings">
+      <button id="changeUsernameButton">Change Username</button>
+    </div>
+
+    <div>
+      <label for="channelSelect">Select Channel:</label>
+      <select id="channelSelect">
+        <option value="General">General</option>
+        <option value="TechTalk">TechTalk</option>
+        <option value="Random">Random</option>
+
+      </select>
+      <div class="chat-content">
+        <div id="chatMessages" class="chat-messages"></div>
+        <div class="chat-input-area">
+          <textarea id="chatInput" placeholder="Type your message here..."></textarea>
+          <button id="sendChatMessage">Send</button>
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+
+
+  <article id="customAppWindow" class="app-window" style="display:none;">
+    <header class="window-header">
+      <span>Task Manager</span>
+      <button class="close-button">X</button>
+      <button class="minimize-button">_</button>
+
+    </header>
+
+    <div class="wrapper">
+
+      <div class="box">
+        <h1>Task Manager</h1>
+      </div>
+
+      <div class="main">
+        <div class="addtasks">
+          <h2>Add Task</h2>
+          <hr>
+        </div>
+
+        <input type="text" id="tasktext" name="tasktext" placeholder="E.g: Studying 2 hours today">
+
+        <div id="createtask">
+          + Create Task
+        </div>
+
+        <div class="addedtasks">
+          <h2>Current Tasks</h2>
+          <hr>
+          <ul id="taskincomplete">
+
+          </ul>
+        </div>
+
+        <div class="completedtasks">
+          <h2>Completed Tasks</h2>
+          <hr>
+          <ul id="taskcomplete">
+
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+  </article>
+
+  <script type="module" src="js/main.js"></script>
+
+</body>
+
+</html>

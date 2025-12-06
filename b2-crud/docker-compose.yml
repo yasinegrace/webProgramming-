@@ -1,0 +1,10 @@
+version: '3.8'  # specifies the Docker Compose file version
+services:  # defines the services your application consists of
+  mongo:  # name of the service
+    image: mongo  # specifies the Docker image to use for the service
+    ports:
+      - "27017:27017"  # maps the port on the container to a port on the host
+    volumes:
+      - mongo_data:/data/db  # mounts a volume for persistent storage
+volumes:  # defines volumes used by your services
+  mongo_data:  # names the volume

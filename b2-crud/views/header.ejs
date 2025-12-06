@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snippet Manager</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Snippet Manager</h1>
+        <nav>
+            <ul>
+                <% if (user) { %>
+                    <!-- links for logged in users -->
+                    <li><a href="/user/logout">Logout</a></li>
+                    <li><a href="/snippets/create">Create Snippet</a></li>
+                    <% } else { %>
+                        <!-- Show links for guests -->
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Register</a></li>
+                        <% } %>
+                            <li><a href="/snippets">View Snippets</a></li>
+
+            </ul>
+        </nav>
+    </header>

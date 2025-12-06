@@ -1,0 +1,30 @@
+<%- include('header') -%>
+  <%- include('flashMessage') -%>
+
+    <main class="container">
+      <h2>All Snippets</h2>
+
+      <% if(snippets.length===0) { %>
+        <p>No snippets found. <a href="/snippets/create">Create one?</a></p>
+        <% } else { %>
+          <div class="list-group">
+            <% snippets.forEach(function(snippet) { %>
+              <div class="list-group-item">
+                <h5 class="mb-1">
+                  <%= snippet.title %>
+                </h5>
+                <a href="/snippets/<%= snippet._id %>">View</a>
+                <% if (user && snippet.createdBy._id.toString()===user.id.toString()) { %>
+                  | <a href="/snippets/<%= snippet._id %>/edit">Edit</a>
+                  <form action="/snippets/<%= snippet._id %>?_method=DELETE" method="POST" class="delete-form">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="delete-button">Delete</button>
+                  </form>
+                  <% } %>
+              </div>
+              <% }) %>
+          </div>
+          <% } %>
+    </main>
+
+    <%- include('footer') -%>

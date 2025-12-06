@@ -1,0 +1,14 @@
+<%- include('header') -%>
+  <%- include('flashMessage') %>
+
+    <main>
+      <h2>Welcome to Snippet Manager!</h2>
+      <% if (user) { %>
+        <p>Hello, <%= user.username %>. Explore your snippets or add new ones.</p>
+        <% } else { %>
+          <p>Manage and share your code snippets with ease. <a href="/register">Register</a> or <a href="/login">log
+              in</a> to start.</p>
+          <% } %>
+    </main>
+
+    <%- include('footer') -%>

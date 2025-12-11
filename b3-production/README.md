@@ -4,9 +4,6 @@ Prerequisites
 Node.js installed on your machine.
 A GitLab account and a personal API token.
 
-Setup Instructions
-Clone the project from GitLab:
-https://gitlab.lnu.se/1dv528/student/gy222at/b3-production
 
 Install Dependencies
 Install the required Node.js dependencies:
@@ -25,4 +22,5 @@ Start the Application# B3 Production
 Run the application using PM2 in production mode:
 
 npm run start
+
 
